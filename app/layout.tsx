@@ -8,8 +8,9 @@ import './globals.css'
   - Display「CohereText」→ Space Grotesk（规范列出的首选回落，几何+近等宽气质）
   - Body/UI「Unica77 Cohere Web」→ Inter（规范列出的首选回落）
   - Mono「CohereMono」→ Space Mono（等宽标签用，与 Space Grotesk 同族更协调）
-  中文无对应专有字体，统一回落到系统 CJK 字体（PingFang SC / 微软雅黑 / Noto Sans SC），
-  避免加载超大 CJK web 字体拖慢首屏；如需统一中文字形可另行接入 Noto Sans SC。
+  中文无对应专有字体：直接加载 Noto Sans SC 作为实体中文字体（不依赖用户系统是否装了
+  PingFang SC / 微软雅黑），并置于每个字体栈 Latin 字体之后 —— Latin 走 Cohere 回落字体，
+  CJK 落到 Noto Sans SC；系统 CJK 字体作为再兜底。preload:false 避免拖慢首屏。
 */
 const displayFont = Space_Grotesk({
   subsets: ['latin'],
