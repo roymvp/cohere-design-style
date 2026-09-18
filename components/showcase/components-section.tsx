@@ -89,9 +89,9 @@ export function ComponentsSection() {
         <div className="flex flex-col gap-6">
           <h3 className="type-mono-label text-body-muted">Capability cards</h3>
           <div className="grid gap-8 md:grid-cols-3">
-            <CapabilityCard visual={<BrainCircuit aria-hidden className="size-6" />} title="模型能力" description="用清晰层级解释复杂模型，而不是把所有信息装进同一种卡片。" href="#" />
-            <CapabilityCard visual={<Network aria-hidden className="size-6" />} title="系统集成" description="用细线、留白与轻量媒体建立产品关系。" href="#" />
-            <CapabilityCard visual={<ShieldCheck aria-hidden className="size-6" />} title="安全治理" description="把安全与合规置于产品叙事中，而不是页面角落。" href="#" />
+            <CapabilityCard visual={<BrainCircuit aria-hidden />} title="模型能力" description="用清晰层级解释复杂模型，而不是把所有信息装进同一种卡片。" href="#" />
+            <CapabilityCard visual={<Network aria-hidden />} title="系统集成" description="用细线、留白与轻量媒体建立产品关系。" href="#" />
+            <CapabilityCard visual={<ShieldCheck aria-hidden />} title="安全治理" description="把安全与合规置于产品叙事中，而不是页面角落。" href="#" />
           </div>
         </div>
 

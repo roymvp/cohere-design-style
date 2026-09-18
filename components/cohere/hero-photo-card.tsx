@@ -21,7 +21,7 @@ export function HeroPhotoCard({
   return (
     <figure
       className={cn(
-        'overflow-hidden rounded-[var(--radius-lg)] bg-soft-stone',
+        'isolate overflow-hidden rounded-[var(--radius-lg)] border border-hairline bg-soft-stone',
         className,
       )}
       {...props}

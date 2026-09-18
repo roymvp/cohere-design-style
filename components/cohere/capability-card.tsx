@@ -22,16 +22,16 @@ export function CapabilityCard({
 }: CapabilityCardProps) {
   return (
     <article
-      className={cn('flex flex-col gap-5 border-t border-hairline pt-6', className)}
+      className={cn('flex flex-col gap-4 border-t border-hairline pt-6', className)}
       {...props}
     >
-      <div className="flex min-h-32 items-center justify-center rounded-[var(--radius-sm)] bg-pale-blue text-action-blue">
+      <div className="flex size-12 items-center justify-center rounded-[var(--radius-sm)] bg-pale-blue text-action-blue [&_svg]:size-6 [&_svg]:stroke-[1.5]">
         {visual}
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="type-feature-heading text-ink">{title}</h3>
         <p className="type-body text-body-muted">{description}</p>
-        <Button render={<a href={href} />} variant="link" size="text">
+        <Button render={<a href={href} />} variant="link" size="text" className="self-start">
           {linkLabel}
         </Button>
       </div>
