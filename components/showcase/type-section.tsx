@@ -16,7 +16,7 @@ export function TypeSection() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <p className="type-mono-label text-body-muted">02 — Typography</p>
         <h2 className="type-section-heading mt-3 text-ink">排版层级</h2>
-        <p className="type-body-large mt-4 max-w-2xl text-body-muted">
+        <p className="type-body-large mt-4 max-w-2xl text-pretty text-body-muted [word-break:keep-all]">
           Display 与 UI 双字族分工：标题近等宽、字距收紧；正文精确克制。避免重字重，靠尺寸与面色做层级。
         </p>
 
