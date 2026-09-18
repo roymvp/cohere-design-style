@@ -51,6 +51,7 @@
   --color-hairline: var(--hairline);
   --color-card-border: var(--card-border);
   --color-slate: var(--slate);
+  --color-muted-gray: var(--muted-gray);
   --color-body-muted: var(--body-muted);
   --color-action-blue: var(--action-blue);
   --color-coral: var(--coral);
@@ -78,6 +79,7 @@
   --hairline: #d9d9dd;
   --card-border: #f2f2f2;
   --slate: #75758a;
+  --muted-gray: #93939f;
   --body-muted: #616161;
   --action-blue: #1863dc;
   --coral: #ff7759;
@@ -112,6 +114,21 @@
   --radius-xl: 30px;
   --radius-pill: 32px;
   --radius: 22px;
+
+  /*
+    间距刻度（规范 spacing）— 同理用普通 CSS 变量，避免占用 Tailwind
+    的 --spacing-* 命名空间（那会重定义 p-4、gap-2、max-w-* 等所有间距工具类）。
+    以 p-[var(--space-xl)] / gap-[var(--space-lg)] 引用；规范值也整齐落在
+    Tailwind 原生刻度上（2/6/8/12/16/24/32/80px），日常仍可直接用原生类。
+  */
+  --space-xxs: 2px;
+  --space-xs: 6px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-section: 80px;
 }
 
 @layer base {
