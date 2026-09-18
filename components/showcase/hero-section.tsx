@@ -14,7 +14,7 @@ export function HeroSection() {
       <h1 className="type-hero mt-6 text-ink">
         克制的企业级 AI 视觉语言
       </h1>
-      <p className="type-body-large mt-6 max-w-[38ch] text-body-muted">
+      <p className="type-body-large mt-6 max-w-[24em] text-body-muted">
         编辑化白底、深色产品带、圆角媒体卡与近等宽标题。以下页面用于验收本设计系统的
         tokens 与组件。
       </p>
