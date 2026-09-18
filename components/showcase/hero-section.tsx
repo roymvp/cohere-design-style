@@ -14,7 +14,7 @@ export function HeroSection() {
       <h1 className="type-hero mt-6 text-ink">
         克制的企业级 AI 视觉语言
       </h1>
-      <p className="type-body-large mt-6 max-w-xl text-body-muted">
+      <p className="type-body-large mt-6 max-w-3xl text-body-muted">
         编辑化白底、深色产品带、圆角媒体卡与近等宽标题。以下页面用于验收本设计系统的
         tokens 与组件。
       </p>
@@ -32,7 +32,7 @@ export function HeroSection() {
         <div className="relative overflow-hidden rounded-[var(--radius-lg)] bg-deep-green p-8 lg:col-span-3">
           <span className="type-mono-label text-canvas/70">Product Band</span>
           <p className="type-card-heading mt-4 max-w-sm text-canvas">
-            深绿产品带承载媒体与暗色 console
+            深绿产品带承载媒体与暗色控制台
           </p>
           <div className="mt-8 rounded-[var(--radius-sm)] bg-primary p-5">
             <div className="flex items-center justify-between">
