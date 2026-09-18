@@ -3,8 +3,9 @@
 import * as React from 'react'
 import { Menu, X } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
+import { AnnouncementBar } from '@/components/cohere/announcement-bar'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 /*
   cohere 风格导航
@@ -17,29 +18,11 @@ import { Button } from '@/components/ui/button'
 const NAV_LINKS = ['产品', '解决方案', '研究', '文档', '公司'] as const
 
 export function SiteNav() {
-  const [announce, setAnnounce] = React.useState(true)
   const [open, setOpen] = React.useState(false)
 
   return (
     <header className="sticky top-0 z-50">
-      {announce && (
-        <div className="flex h-9 items-center justify-center gap-3 bg-cohere-black px-4 text-canvas">
-          <p className="type-micro">
-            新一代模型平台现已上线。{' '}
-            <a href="#" className="underline underline-offset-2">
-              了解更多
-            </a>
-          </p>
-          <button
-            type="button"
-            onClick={() => setAnnounce(false)}
-            aria-label="关闭公告"
-            className="absolute right-4 opacity-70 hover:opacity-100"
-          >
-            <X className="size-3.5" />
-          </button>
-        </div>
-      )}
+      <AnnouncementBar message="新一代模型平台现已上线。" href="#" />
 
       <div className="border-b border-hairline bg-canvas/90 backdrop-blur">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">

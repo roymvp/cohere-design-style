@@ -1,11 +1,5 @@
-import { ArrowRight } from 'lucide-react'
+import { NewsletterForm } from '@/components/cohere/newsletter-form'
 
-import { Input } from '@/components/ui/input'
-
-/*
-  展示页页脚
-  源规范 footer-newsletter：深色底、coral 小标签、白标题、邮箱单行 + 箭头提交、muted 法务微文案。
-*/
 const COLUMNS = [
   { title: '产品', links: ['平台', '模型', 'API', '定价'] },
   { title: '研究', links: ['论文', '开放科学', '基准'] },
@@ -17,36 +11,20 @@ export function FooterSection() {
     <footer className="bg-primary text-canvas">
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <span className="type-mono-label text-coral">AI moves fast</span>
-            <h2 className="type-card-heading mt-4 max-w-sm text-canvas">
-              订阅进展更新
-            </h2>
-            <div className="mt-6 flex max-w-md items-center gap-3">
-              <Input
-                type="email"
-                placeholder="工作邮箱"
-                className="border-canvas/20 bg-canvas/5 text-canvas placeholder:text-canvas/50"
-              />
-              <button
-                type="button"
-                aria-label="订阅"
-                className="flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-xs)] bg-canvas text-ink"
-              >
-                <ArrowRight className="size-4" />
-              </button>
-            </div>
-          </div>
+          <NewsletterForm
+            title="订阅进展更新"
+            legal="提交即表示你同意接收研究与产品更新，可随时退订。"
+          />
 
           <div className="grid grid-cols-3 gap-8">
-            {COLUMNS.map((c) => (
-              <div key={c.title}>
-                <p className="type-caption text-canvas">{c.title}</p>
-                <ul className="mt-4 space-y-3">
-                  {c.links.map((l) => (
-                    <li key={l}>
+            {COLUMNS.map((column) => (
+              <div key={column.title}>
+                <p className="type-caption text-canvas">{column.title}</p>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {column.links.map((link) => (
+                    <li key={link}>
                       <a href="#" className="type-body text-canvas/60 hover:text-canvas">
-                        {l}
+                        {link}
                       </a>
                     </li>
                   ))}

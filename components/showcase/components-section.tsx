@@ -1,144 +1,146 @@
-import { Check } from 'lucide-react'
+import { BrainCircuit, Network, ShieldCheck } from 'lucide-react'
 
+import { CapabilityCard } from '@/components/cohere/capability-card'
+import { ContactFormCard } from '@/components/cohere/contact-form-card'
+import { FeatureBand } from '@/components/cohere/feature-band'
+import { FilterChip } from '@/components/cohere/filter-chip'
+import { ProductCard } from '@/components/cohere/product-card'
+import { ResearchList } from '@/components/cohere/research-list'
+import { TrustLogoStrip } from '@/components/cohere/trust-logo-strip'
 import { Button } from '@/components/ui/button'
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Textarea } from '@/components/ui/textarea'
+
+const products = [
+  {
+    title: 'Command',
+    description: '面向复杂企业任务的生成与推理模型。',
+    features: ['长上下文处理', '工具调用', '私有化部署'],
+  },
+  {
+    title: 'Embed',
+    description: '把多语言内容转换为高质量语义表示。',
+    features: ['多语言检索', '低延迟向量化', '企业数据优化'],
+  },
+  {
+    title: 'Rerank',
+    description: '在候选结果中重新排序最相关内容。',
+    features: ['语义重排', '混合检索', '可扩展 API'],
+  },
+]
+
+const research = [
+  { title: '让企业智能体在受控环境中可靠协作', topics: ['Agents', '安全'], date: '2026.08', href: '#' },
+  { title: '跨语言嵌入模型的检索基准', topics: ['Embedding', '研究'], date: '2026.06', href: '#' },
+  { title: '从检索结果到可引用答案', topics: ['RAG'], date: '2026.03', href: '#' },
+]
 
 export function ComponentsSection() {
   return (
-    <section className="border-t border-hairline bg-canvas">
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        <p className="type-mono-label text-body-muted">03 — Components</p>
-        <h2 className="type-section-heading mt-3 text-ink">可复用组件</h2>
-        <p className="type-body-large mt-4 max-w-2xl text-body-muted">
-          按钮、输入框、卡片与导航构成最小可安装组件集，全部消费上面的 tokens。
-        </p>
+    <section id="components" className="border-t border-hairline bg-canvas">
+      <div className="mx-auto flex max-w-7xl flex-col gap-20 px-6 py-20">
+        <header className="flex max-w-3xl flex-col gap-4">
+          <p className="type-mono-label text-body-muted">03 — Components</p>
+          <h2 className="type-section-heading text-ink">从基础控件到完整业务模式</h2>
+          <p className="type-body-large text-body-muted">
+            组件按源规范补齐，并保持公共 API 小而明确：基础控件负责状态，组合组件负责 Cohere 风格的结构与节奏。
+          </p>
+        </header>
 
-        {/* 按钮 */}
-        <div className="mt-12">
-          <h3 className="type-mono-label text-body-muted">按钮</h3>
-          <div className="mt-4 flex flex-wrap items-center gap-4 rounded-[var(--radius-md)] border border-card-border p-6">
-            <Button variant="primary">申请演示</Button>
+        <div className="flex flex-col gap-6">
+          <h3 className="type-mono-label text-body-muted">Actions & taxonomy</h3>
+          <div className="flex flex-wrap items-center gap-4 rounded-[var(--radius-md)] border border-card-border p-6">
+            <Button>申请演示</Button>
             <Button variant="outline">研究筛选</Button>
             <Button variant="secondary">探索产品</Button>
             <Button variant="link">阅读论文</Button>
-            <Button variant="primary" disabled>
-              禁用
-            </Button>
+            <Button disabled>禁用</Button>
           </div>
-          <div className="mt-4 flex flex-wrap items-center gap-4 rounded-[var(--radius-lg)] bg-deep-green p-6">
-            <Button variant="primary-invert">深色带内主操作</Button>
-            <span className="type-caption text-canvas/70">
-              深绿产品带上反白 pill CTA
-            </span>
-          </div>
-        </div>
-
-        {/* 输入框 */}
-        <div className="mt-12">
-          <h3 className="type-mono-label text-body-muted">输入框</h3>
-          <Card tone="plain" className="mt-4 rounded-[var(--radius-lg)] p-8">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="flex flex-col gap-2">
-                <span className="type-caption text-ink">工作邮箱</span>
-                <Input type="email" placeholder="you@company.com" />
-              </label>
-              <label className="flex flex-col gap-2">
-                <span className="type-caption text-ink">机构名称</span>
-                <Input placeholder="研究机构 / 企业" />
-              </label>
-              <label className="flex flex-col gap-2 sm:col-span-2">
-                <span className="type-caption text-ink">校验示例</span>
-                <Input aria-invalid placeholder="错误态：紫色 focus 边 / 红色校验环" />
-              </label>
-            </div>
-            <div className="mt-6">
-              <Button variant="primary">提交</Button>
-            </div>
-          </Card>
-        </div>
-
-        {/* 卡片 */}
-        <div className="mt-12">
-          <h3 className="type-mono-label text-body-muted">卡片</h3>
-          <div className="mt-4 grid gap-6 md:grid-cols-3">
-            <Card tone="plain">
-              <CardHeader>
-                <CardTitle>能力卡</CardTitle>
-                <CardDescription>白面细边，无投影，仅靠圆角与描线分层。</CardDescription>
-              </CardHeader>
-              <CardFooter>
-                <Button variant="link">了解更多</Button>
-              </CardFooter>
-            </Card>
-
-            <Card tone="stone">
-              <CardHeader>
-                <CardTitle>产品卡</CardTitle>
-                <CardDescription className="text-ink/70">
-                  暖石面，用于模型/产品摘要。
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="mt-2">
-                <ul className="space-y-2">
-                  {['高吞吐推理', '私有化部署', '合规审计'].map((t) => (
-                    <li key={t} className="flex items-center gap-2 text-ink">
-                      <Check className="size-4 text-deep-green" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" size="pill">
-                  查看规格
-                </Button>
-              </CardFooter>
-            </Card>
-
-            <Card tone="console">
-              <div className="flex items-center justify-between">
-                <span className="type-mono-label text-canvas/70">Agent Console</span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-canvas/10 px-2.5 py-1 type-micro text-canvas">
-                  <span className="size-1.5 rounded-full bg-coral" aria-hidden />
-                  运行中
-                </span>
-              </div>
-              <div className="mt-4 space-y-3">
-                <div className="rounded-[var(--radius-xs)] bg-canvas/5 p-3 type-caption text-canvas/80">
-                  分析临床数据集…
-                </div>
-                <div className="rounded-[var(--radius-xs)] border border-canvas/15 p-3 type-caption text-canvas/90">
-                  已生成候选序列摘要
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-
-        {/* 分类 chip（编辑面） */}
-        <div className="mt-12">
-          <h3 className="type-mono-label text-body-muted">分类 chip（编辑面）</h3>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <span className="rounded-[var(--radius-sm)] bg-coral px-3.5 py-1.5 type-feature-heading text-ink">
-              全部
-            </span>
-            {['研究', '平台', '安全', '监管'].map((t) => (
-              <span
-                key={t}
-                className="rounded-[var(--radius-sm)] border border-coral-soft bg-pale-green px-3.5 py-1.5 type-feature-heading text-coral"
-              >
-                {t}
-              </span>
+          <div className="flex flex-wrap gap-3">
+            <FilterChip active>全部</FilterChip>
+            {['研究', '平台', '安全', '监管'].map((item) => (
+              <FilterChip key={item}>{item}</FilterChip>
             ))}
           </div>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <h3 className="type-mono-label text-body-muted">Form controls</h3>
+          <div className="grid gap-6 rounded-[var(--radius-lg)] bg-soft-stone p-6 md:grid-cols-2 md:p-8">
+            <FieldGroup>
+              <Field>
+                <FieldLabel htmlFor="demo-email">工作邮箱</FieldLabel>
+                <Input id="demo-email" type="email" placeholder="you@company.com" />
+              </Field>
+              <Field data-invalid>
+                <FieldLabel htmlFor="demo-invalid">校验示例</FieldLabel>
+                <Input id="demo-invalid" aria-invalid defaultValue="not-an-email" />
+                <FieldError>请输入有效的工作邮箱。</FieldError>
+              </Field>
+            </FieldGroup>
+            <Field>
+              <FieldLabel htmlFor="demo-message">项目背景</FieldLabel>
+              <Textarea id="demo-message" placeholder="描述你的团队与目标" />
+            </Field>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <h3 className="type-mono-label text-body-muted">Capability cards</h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            <CapabilityCard visual={<BrainCircuit aria-hidden className="size-6" />} title="模型能力" description="用清晰层级解释复杂模型，而不是把所有信息装进同一种卡片。" href="#" />
+            <CapabilityCard visual={<Network aria-hidden className="size-6" />} title="系统集成" description="用细线、留白与轻量媒体建立产品关系。" href="#" />
+            <CapabilityCard visual={<ShieldCheck aria-hidden className="size-6" />} title="安全治理" description="把安全与合规置于产品叙事中，而不是页面角落。" href="#" />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <h3 className="type-mono-label text-body-muted">Product cards</h3>
+          <div className="grid gap-6 md:grid-cols-3">
+            {products.map((product) => (
+              <ProductCard key={product.title} {...product} href="#" />
+            ))}
+          </div>
+        </div>
+
+        <FeatureBand
+          title="让企业 AI 保持可控"
+          description="深色产品带用于承载能力、安全和系统级主张；它是独立页面段落，不是默认卡片皮肤。"
+          action={<Button variant="primary-invert">查看安全方案</Button>}
+        >
+          <div className="grid gap-8 md:grid-cols-3">
+            {['数据隔离', '权限边界', '审计轨迹'].map((item) => (
+              <article key={item} className="flex flex-col gap-3 border-t border-canvas/20 pt-5">
+                <h3 className="type-feature-heading">{item}</h3>
+                <p className="type-body text-canvas/70">把关键约束放在使用路径中，让团队能够理解、检查并复核。</p>
+              </article>
+            ))}
+          </div>
+        </FeatureBand>
+
+        <TrustLogoStrip
+          label="被研究、产品与安全团队采用"
+          items={['Northstar', 'Arc Labs', 'Morrow', 'Fieldwork', 'Tern'].map((name) => ({ name }))}
+        />
+
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h3 className="type-section-heading text-ink">研究与观点</h3>
+              <p className="type-body mt-3 text-body-muted">高行距、规则线与紧凑主题标签组成研究列表。</p>
+            </div>
+            <Button variant="secondary" size="text">查看全部研究</Button>
+          </div>
+          <ResearchList items={research} />
+        </div>
+
+        <div className="grid gap-8 rounded-[var(--radius-lg)] bg-deep-green p-6 md:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="flex flex-col gap-4 text-canvas">
+            <h3 className="type-section-heading">讨论你的企业 AI 场景</h3>
+            <p className="type-body-large text-canvas/70">联系表单卡在深绿或暖石背景上形成清晰的填写焦点。</p>
+          </div>
+          <ContactFormCard title="告诉我们你的需求" description="我们会根据团队规模、数据环境与部署要求与你联系。" />
         </div>
       </div>
     </section>
