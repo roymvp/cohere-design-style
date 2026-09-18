@@ -19,7 +19,7 @@ export function FooterSection() {
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <span className="type-mono-label text-coral">AI moves fast</span>
-            <h2 className="type-card-heading mt-4 max-w-sm text-balance text-canvas">
+            <h2 className="type-card-heading mt-4 max-w-sm text-canvas">
               订阅进展更新
             </h2>
             <div className="mt-6 flex max-w-md items-center gap-3">
