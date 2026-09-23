@@ -6,7 +6,14 @@ interface FeatureBandProps extends React.ComponentProps<'section'> {
   title: string
   description?: string
   action?: React.ReactNode
-  tone?: 'green' | 'navy'
+  tone?: 'green' | 'forest' | 'sage' | 'navy'
+}
+
+const toneBg: Record<NonNullable<FeatureBandProps['tone']>, string> = {
+  green: 'bg-deep-green',
+  forest: 'bg-forest-green',
+  sage: 'bg-sage-green',
+  navy: 'bg-dark-navy',
 }
 
 export function FeatureBand({
@@ -22,7 +29,7 @@ export function FeatureBand({
     <section
       className={cn(
         'rounded-[var(--radius-lg)] px-6 py-12 text-canvas md:px-10',
-        tone === 'green' ? 'bg-deep-green' : 'bg-dark-navy',
+        toneBg[tone],
         className,
       )}
       {...props}

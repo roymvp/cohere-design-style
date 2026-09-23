@@ -43,6 +43,8 @@
   --color-cohere-black: var(--cohere-black);
   --color-ink: var(--ink);
   --color-deep-green: var(--deep-green);
+  --color-forest-green: var(--forest-green);
+  --color-sage-green: var(--sage-green);
   --color-dark-navy: var(--dark-navy);
   --color-canvas: var(--canvas);
   --color-soft-stone: var(--soft-stone);
@@ -70,10 +72,16 @@
   /* cohere 原始色板 */
   --cohere-black: #000000;
   --ink: #212121;
-  --deep-green: #003c33;
+  /* 绿色家族（与 cohere.com 线上实测逐值核对）
+     deep-green   = North 产品带 rgb(6,44,34)
+     forest-green = 企业/安全带 rgb(21,39,23)
+     sage-green   = CTA / empowerment 带 rgb(53,81,70) */
+  --deep-green: #062c22;
+  --forest-green: #152717;
+  --sage-green: #355146;
   --dark-navy: #071829;
   --canvas: #ffffff;
-  --soft-stone: #eeece7;
+  --soft-stone: #f0eee9;
   --pale-green: #edfce9;
   --pale-blue: #f1f5ff;
   --hairline: #d9d9dd;
@@ -94,7 +102,7 @@
   --popover-foreground: #212121;
   --primary: #17171c;
   --primary-foreground: #ffffff;
-  --secondary: #eeece7;
+  --secondary: #f0eee9;
   --secondary-foreground: #212121;
   --muted: #f2f2f2;
   --muted-foreground: #616161;
@@ -164,7 +172,7 @@
     letter-spacing: -0.02em;
   }
   .type-section-display {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 400;
     font-size: clamp(2rem, 5vw, 3.75rem);
     line-height: 1;

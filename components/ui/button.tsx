@@ -14,18 +14,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // 主 CTA：近黑 pill，浅色面上的最高优先级操作
+        // 主 CTA：近黑 pill，浅色面上的最高优先级操作（官网实测为真 pill）
         primary:
-          'rounded-[var(--radius-pill)] bg-primary text-primary-foreground hover:bg-primary/90',
+          'rounded-full bg-primary text-primary-foreground hover:bg-primary/90',
         // 浅色面反白 pill：用于深色带内部的主操作
         'primary-invert':
-          'rounded-[var(--radius-pill)] bg-canvas text-ink hover:bg-canvas/90',
+          'rounded-full bg-canvas text-ink hover:bg-canvas/90',
         // 次操作：纯文字下划线链接
         secondary:
           'rounded-[var(--radius-xs)] px-0 text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink',
-        // 描边 pill：research / topic 分类控件
+        // 描边 pill：research / topic 分类控件（官网实测为真 pill）
         outline:
-          'rounded-[var(--radius-xl)] border border-ink/80 bg-transparent text-ink hover:bg-ink hover:text-canvas',
+          'rounded-full border border-ink/80 bg-transparent text-ink hover:bg-ink hover:text-canvas',
         // 链接蓝：编辑面的行内链接与分页
         link: 'rounded-[var(--radius-xs)] px-0 text-action-blue underline-offset-4 hover:underline',
       },

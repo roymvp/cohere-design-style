@@ -16,8 +16,12 @@ const cardVariants = cva('flex flex-col rounded-[var(--radius-md)]', {
       plain: 'border border-card-border bg-card text-card-foreground p-6',
       // 暖石产品卡
       stone: 'bg-soft-stone text-ink p-8',
-      // 深绿产品带
+      // 深绿产品带（North）
       green: 'bg-deep-green text-canvas p-8 rounded-[var(--radius-lg)]',
+      // 森绿企业/安全带
+      forest: 'bg-forest-green text-canvas p-8 rounded-[var(--radius-lg)]',
+      // 灰绿 CTA / empowerment 带
+      sage: 'bg-sage-green text-canvas p-8 rounded-[var(--radius-lg)]',
       // 深蓝安全/金融带
       navy: 'bg-dark-navy text-canvas p-8 rounded-[var(--radius-lg)]',
       // 近黑 agent console

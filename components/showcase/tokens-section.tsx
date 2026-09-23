@@ -2,7 +2,9 @@ const BRAND_SWATCHES = [
   { name: 'primary', hex: '#17171c', note: '主 CTA / 深 UI 卡', dark: true },
   { name: 'cohere-black', hex: '#000000', note: '公告条 / 最高对比', dark: true },
   { name: 'ink', hex: '#212121', note: '正文文字', dark: true },
-  { name: 'deep-green', hex: '#003c33', note: '产品带', dark: true },
+  { name: 'deep-green', hex: '#062c22', note: '产品带（North）', dark: true },
+  { name: 'forest-green', hex: '#152717', note: '企业/安全带', dark: true },
+  { name: 'sage-green', hex: '#355146', note: 'CTA / empowerment 带', dark: true },
   { name: 'dark-navy', hex: '#071829', note: '安全/金融带', dark: true },
   { name: 'action-blue', hex: '#1863dc', note: '编辑面链接', dark: true },
   { name: 'coral', hex: '#ff7759', note: '分类 chip 强调', dark: false },
@@ -11,7 +13,7 @@ const BRAND_SWATCHES = [
 
 const SURFACE_SWATCHES = [
   { name: 'canvas', hex: '#ffffff', note: '主背景', dark: false },
-  { name: 'soft-stone', hex: '#eeece7', note: '暖石卡面', dark: false },
+  { name: 'soft-stone', hex: '#f0eee9', note: '暖石卡面', dark: false },
   { name: 'pale-green', hex: '#edfce9', note: '浅绿区块底', dark: false },
   { name: 'pale-blue', hex: '#f1f5ff', note: '博客 CTA 底', dark: false },
   { name: 'card-border', hex: '#f2f2f2', note: '最浅描线', dark: false },
