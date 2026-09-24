@@ -1,12 +1,12 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, Inter, Space_Mono, Noto_Sans_SC } from 'next/font/google'
+import { Space_Grotesk, Space_Mono, Noto_Sans_SC } from 'next/font/google'
 import './globals.css'
 
 /*
   专有字体替代方案（源规范 Known Gaps：Cohere 私有字体文件未打包）
   - Display「CohereText」→ Space Grotesk（规范列出的首选回落，几何+近等宽气质）
-  - Body/UI「Unica77 Cohere Web」→ Inter（规范列出的首选回落）
+  - Body/UI → Space Grotesk（Live Preview 实际字体，而非文字规范的 Inter 回退）
   - Mono「CohereMono」→ Space Mono（等宽标签用，与 Space Grotesk 同族更协调）
   中文无对应专有字体：直接加载 Noto Sans SC 作为实体中文字体（不依赖用户系统是否装了
   PingFang SC / 微软雅黑），并置于每个字体栈 Latin 字体之后 —— Latin 走 Cohere 回落字体，
@@ -15,11 +15,6 @@ import './globals.css'
 const displayFont = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display-src',
-  display: 'swap',
-})
-const bodyFont = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans-src',
   display: 'swap',
 })
 const monoFont = Space_Mono({
@@ -58,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} ${cjkFont.variable} bg-background`}
+      className={`${displayFont.variable} ${monoFont.variable} ${cjkFont.variable} bg-background`}
     >
       <body className="antialiased">
         {children}

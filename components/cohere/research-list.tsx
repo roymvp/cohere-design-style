@@ -1,12 +1,4 @@
 import { Badge } from '@/components/ui/badge'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
 
 interface ResearchItem {
   title: string
@@ -22,45 +14,19 @@ interface ResearchListProps {
   dateLabel?: string
 }
 
-export function ResearchList({
-  items,
-  titleLabel = '出版物',
-  topicLabel = '主题',
-  dateLabel = '日期',
-}: ResearchListProps) {
+export function ResearchList({ items, titleLabel = '出版物', topicLabel = '主题', dateLabel = '日期' }: ResearchListProps) {
   return (
-    <Table className="min-w-2xl border-t border-hairline">
-      <TableHeader>
-        <TableRow className="border-hairline hover:bg-transparent">
-          <TableHead className="h-12 px-0 type-mono-label text-body-muted">{titleLabel}</TableHead>
-          <TableHead className="h-12 type-mono-label text-body-muted">{topicLabel}</TableHead>
-          <TableHead className="h-12 px-0 text-right type-mono-label text-body-muted">{dateLabel}</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {items.map((item) => (
-          <TableRow key={item.title} className="border-hairline hover:bg-soft-stone/60">
-            <TableCell className="px-0 py-6">
-              <a href={item.href} className="type-body text-ink underline-offset-4 hover:underline">
-                {item.title}
-              </a>
-            </TableCell>
-            <TableCell className="py-6">
-              <div className="flex flex-wrap gap-2">
-                {item.topics.map((topic) => (
-                  <Badge key={topic} variant="topic">
-                    {topic}
-                  </Badge>
-                ))}
-              </div>
-            </TableCell>
-            <TableCell className="px-0 py-6 text-right type-caption tabular-nums text-body-muted">
-              {item.date}
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <ul aria-label={titleLabel} className="min-w-0 border-t border-slate">
+      {items.map((item) => (
+        <li key={item.title} className="research-row">
+          <a href={item.href} className="min-w-0 type-body text-action-blue underline-offset-4 [overflow-wrap:anywhere] hover:underline focus-visible:outline-2 focus-visible:outline-ring">{item.title}</a>
+          <div aria-label={topicLabel} className="flex min-w-0 flex-wrap gap-2">
+            {item.topics.map((topic) => <Badge key={topic} variant="topic">{topic}</Badge>)}
+          </div>
+          <span className="type-caption tabular-nums text-body-muted"><span className="sr-only">{dateLabel}：</span>{item.date}</span>
+        </li>
+      ))}
+    </ul>
   )
 }
 

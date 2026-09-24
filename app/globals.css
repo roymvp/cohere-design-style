@@ -4,16 +4,16 @@
 
 /*
   「cohere 风格」设计系统 tokens
-  源规范：VoltAgent/awesome-design-md · cohere/DESIGN.md
-  值直接来自规范。品牌名/logo/营销文案不复制，仅保留视觉语言。
+  视觉来源：getdesign.md/cohere/design-md 的 Live Preview（2026-09-25）。
+  品牌名/logo/营销文案不复制；兼容扩展不属于 Live Preview 基础刻度。
 */
 
 @theme inline {
   /* 字体族（见 layout.tsx 中 next/font 变量注入） */
-  --font-display: var(--font-display-src), 'Space Grotesk', 'Inter',
+  --font-display: var(--font-display-src), 'Space Grotesk',
     var(--font-cjk-src), ui-sans-serif, system-ui, 'PingFang SC',
     'Microsoft YaHei', sans-serif;
-  --font-sans: var(--font-sans-src), 'Inter', var(--font-cjk-src),
+  --font-sans: var(--font-display-src), 'Space Grotesk', var(--font-cjk-src),
     ui-sans-serif, system-ui, 'PingFang SC', 'Microsoft YaHei',
     'Hiragino Sans GB', sans-serif;
   --font-mono: var(--font-mono-src), 'Space Mono', var(--font-cjk-src),
@@ -58,6 +58,12 @@
   --color-action-blue: var(--action-blue);
   --color-coral: var(--coral);
   --color-coral-soft: var(--coral-soft);
+  --color-border-light: var(--border-light);
+  --color-focus-blue: var(--ring);
+  --color-form-focus: var(--form-focus);
+  --color-coral-ink: var(--coral-ink);
+  --color-chip-surface: var(--chip-surface);
+  --color-console-border: var(--console-border);
 }
 /*
   注意：圆角/间距刻度不注册进 @theme 的 --radius-* / --spacing-* 命名空间，
@@ -72,17 +78,14 @@
   /* cohere 原始色板 */
   --cohere-black: #000000;
   --ink: #212121;
-  /* 绿色家族（与 cohere.com 线上实测逐值核对）
-     deep-green   = North 产品带 rgb(6,44,34)
-     forest-green = 企业/安全带 rgb(21,39,23)
-     sage-green   = CTA / empowerment 带 rgb(53,81,70) */
-  --deep-green: #062c22;
+  --deep-green: #003c33;
+  /* 旧官网扩展，仅保留 API 兼容，不进入标准色板。 */
   --forest-green: #152717;
   --sage-green: #355146;
-  --dark-navy: #061324;
+  --dark-navy: #071829;
   --canvas: #ffffff;
-  --soft-stone: #f0eee9;
-  --pale-green: #f1fdea;
+  --soft-stone: #eeece7;
+  --pale-green: #edfce9;
   --pale-blue: #f1f5ff;
   --hairline: #d9d9dd;
   --card-border: #f2f2f2;
@@ -102,7 +105,7 @@
   --popover-foreground: #212121;
   --primary: #17171c;
   --primary-foreground: #ffffff;
-  --secondary: #f0eee9;
+  --secondary: #eeece7;
   --secondary-foreground: #212121;
   --muted: #f2f2f2;
   --muted-foreground: #616161;
@@ -110,9 +113,19 @@
   --accent-foreground: #1863dc;
   --destructive: #b30000;
   --border: #d9d9dd;
-  --input: #e5e7eb;
+  --input: #808080;
   --ring: #4c6ee6;
   --form-focus: #9b60aa;
+  --form-focus-ring: rgb(209 142 226 / 65%);
+  --border-light: #e5e7eb;
+  --chip-surface: #fff8f6;
+  /* 来源 coral 小字对比不足；可交互分类文字使用可读性修正色。 */
+  --coral-ink: #a63822;
+  --console-border: #2f2f37;
+  --hero-media-gradient: radial-gradient(circle at 12% 15%, rgb(255 119 89 / 45%), transparent 23%), radial-gradient(circle at 78% 22%, rgb(24 99 220 / 38%), transparent 26%), linear-gradient(135deg, #15151b 0%, #514066 46%, #dad6c9 100%);
+  --hero-art-gradient: linear-gradient(rgb(0 0 0 / 5%), rgb(0 0 0 / 32%)), radial-gradient(circle at 70% 20%, #ffad9b, transparent 28%), linear-gradient(135deg, #f4ddc8, #2f746b 55%, #14171c);
+  --container-wide: 1280px;
+  --container-hero: 1180px;
 
   /* 圆角刻度（规范 rounded）— 普通 CSS 变量，组件以 rounded-[var(--radius-*)] 引用 */
   --radius-xs: 4px;
@@ -157,6 +170,20 @@
   用 clamp 让 hero / display 在移动端自动收敛，符合规范响应式收窄。
 */
 @layer components {
+  .type-button {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .catalog-section { max-width: var(--container-hero); margin-inline: auto; padding: 80px 40px; }
+  .hero-section { padding: 84px 40px 72px; }
+  .hero-media { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 20px; text-align: left; }
+  .hero-media-console { display: grid; place-items: center; min-height: 330px; padding: 42px; border-radius: var(--radius-lg); background: var(--hero-media-gradient); }
+  .hero-media-art { min-height: 330px; border-radius: var(--radius-lg); background: var(--hero-art-gradient); }
+  .feature-band { padding: 54px; }
+  .feature-panels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; }
+  .research-row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .8fr) 120px; gap: 18px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--slate); }
   .type-hero {
     font-family: var(--font-display);
     font-weight: 400;
@@ -230,4 +257,12 @@
     font-size: 0.75rem;
     line-height: 1.4;
   }
+  @media (max-width: 820px) {
+    .hero-section, .catalog-section { padding-inline: 20px; }
+    .hero-media, .feature-panels, .research-row { grid-template-columns: minmax(0, 1fr); }
+    .hero-media-art { min-height: 220px; }
+    .hero-media-console { padding: 24px; }
+    .feature-band { padding: 28px; }
+  }
 }
+

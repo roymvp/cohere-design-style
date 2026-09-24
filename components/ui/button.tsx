@@ -14,23 +14,23 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // 主 CTA：近黑 pill，浅色面上的最高优先级操作（官网实测为真 pill）
+        // 主 CTA：近黑 pill，浅色面上的最高优先级操作（Live Preview：32px 圆角）
         primary:
-          'rounded-full bg-primary text-primary-foreground hover:bg-primary/90',
+          'rounded-[var(--radius-pill)] bg-primary text-primary-foreground hover:bg-primary/90',
         // 浅色面反白 pill：用于深色带内部的主操作
         'primary-invert':
-          'rounded-full bg-canvas text-ink hover:bg-canvas/90',
+          'rounded-[var(--radius-pill)] bg-canvas text-ink hover:bg-canvas/90',
         // 次操作：纯文字下划线链接
         secondary:
-          'rounded-[var(--radius-xs)] px-0 text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink',
-        // 描边 pill：research / topic 分类控件（官网实测为真 pill）
+          'rounded-none border-b border-current px-0 py-2 type-body text-ink hover:text-body-muted',
+        // 描边 pill：research / topic 分类控件（Live Preview：32px 圆角）
         outline:
-          'rounded-full border border-ink/80 bg-transparent text-ink hover:bg-ink hover:text-canvas',
+          'rounded-[var(--radius-xl)] border border-primary bg-transparent text-primary hover:bg-primary hover:text-canvas',
         // 链接蓝：编辑面的行内链接与分页
         link: 'rounded-[var(--radius-xs)] px-0 text-action-blue underline-offset-4 hover:underline',
       },
       size: {
-        default: 'h-10 px-6 text-sm leading-none',
+        default: 'h-12 px-6 type-button',
         sm: 'h-8 px-4 text-sm leading-none',
         lg: 'h-12 px-8 text-base leading-none',
         pill: 'h-9 px-3 text-sm leading-none',

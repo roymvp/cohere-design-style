@@ -28,13 +28,13 @@ export function FeatureBand({
   return (
     <section
       className={cn(
-        'rounded-[var(--radius-lg)] px-6 py-12 text-canvas md:px-10',
+        'feature-band rounded-[var(--radius-lg)] text-canvas',
         toneBg[tone],
         className,
       )}
       {...props}
     >
-      <div className="flex flex-col gap-6 border-b border-canvas/15 pb-8 md:flex-row md:items-end md:justify-between">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="flex max-w-2xl flex-col gap-4">
           <h2 className="type-section-heading">{title}</h2>
           {description && <p className="type-body-large text-canvas/70">{description}</p>}

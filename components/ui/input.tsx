@@ -12,8 +12,8 @@ function Input({ className, type, tone = 'light', ...props }: InputProps) {
       type={type}
       data-slot="input"
       className={cn(
-        'flex h-11 w-full rounded-[var(--radius-xs)] border px-4 py-3 text-base transition-colors outline-none',
-        'focus-visible:border-[var(--form-focus)] focus-visible:ring-3 focus-visible:ring-ring/40',
+        'flex min-h-11 w-full rounded-[var(--radius-xs)] border p-3 type-caption transition-colors outline-none',
+        'focus-visible:border-[var(--form-focus)] focus-visible:ring-2 focus-visible:ring-[var(--form-focus-ring)]',
         'disabled:cursor-not-allowed disabled:opacity-50',
         'aria-invalid:border-destructive aria-invalid:ring-destructive/20',
         tone === 'dark'

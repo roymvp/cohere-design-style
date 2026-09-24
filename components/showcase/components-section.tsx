@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Select } from '@/components/ui/select'
 
 const products = [
   {
@@ -38,8 +39,8 @@ const research = [
 
 export function ComponentsSection() {
   return (
-    <section id="components" className="border-t border-hairline bg-canvas">
-      <div className="mx-auto flex max-w-7xl flex-col gap-20 px-6 py-20">
+    <section id="components" className="scroll-mt-24 border-t border-hairline bg-canvas">
+      <div className="catalog-section"><div className="flex flex-col gap-20">
         <header className="flex max-w-3xl flex-col gap-4">
           <p className="type-mono-label text-body-muted">03 — Components</p>
           <h2 className="type-section-heading text-ink">从基础控件到完整业务模式</h2>
@@ -73,10 +74,19 @@ export function ComponentsSection() {
                 <FieldLabel htmlFor="demo-email">工作邮箱</FieldLabel>
                 <Input id="demo-email" type="email" placeholder="you@company.com" />
               </Field>
+              <Field>
+                <FieldLabel htmlFor="demo-size">团队规模</FieldLabel>
+                <Select id="demo-size" defaultValue="">
+                  <option value="" disabled>请选择团队规模</option>
+                  <option value="small">1–50 人</option>
+                  <option value="medium">51–200 人</option>
+                  <option value="large">200 人以上</option>
+                </Select>
+              </Field>
               <Field data-invalid>
                 <FieldLabel htmlFor="demo-invalid">校验示例</FieldLabel>
-                <Input id="demo-invalid" aria-invalid defaultValue="not-an-email" />
-                <FieldError>请输入有效的工作邮箱。</FieldError>
+                <Input id="demo-invalid" aria-invalid aria-describedby="demo-invalid-error" defaultValue="not-an-email" />
+                <FieldError id="demo-invalid-error">请输入有效的工作邮箱。</FieldError>
               </Field>
             </FieldGroup>
             <Field>
@@ -109,9 +119,9 @@ export function ComponentsSection() {
           description="深色产品带用于承载能力、安全和系统级主张；它是独立页面段落，不是默认卡片皮肤。"
           action={<Button variant="primary-invert">查看安全方案</Button>}
         >
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="feature-panels">
             {['数据隔离', '权限边界', '审计轨迹'].map((item) => (
-              <article key={item} className="flex flex-col gap-3 border-t border-canvas/20 pt-5">
+              <article key={item} className="min-h-45 rounded-[var(--radius-md)] border border-canvas/20 bg-canvas/4 p-7">
                 <h3 className="type-feature-heading">{item}</h3>
                 <p className="type-body text-canvas/70">把关键约束放在使用路径中，让团队能够理解、检查并复核。</p>
               </article>
@@ -120,7 +130,7 @@ export function ComponentsSection() {
         </FeatureBand>
 
         <TrustLogoStrip
-          label="被研究、产品与安全团队采用"
+          label="标志条示例 · 以下为虚构名称，非客户背书"
           items={['Northstar', 'Arc Labs', 'Morrow', 'Fieldwork', 'Tern'].map((name) => ({ name }))}
         />
 
@@ -142,7 +152,7 @@ export function ComponentsSection() {
           </div>
           <ContactFormCard title="告诉我们你的需求" description="我们会根据团队规模、数据环境与部署要求与你联系。" />
         </div>
-      </div>
+      </div></div>
     </section>
   )
 }

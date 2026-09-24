@@ -1,39 +1,25 @@
 import { Button } from '@/components/ui/button'
 import { AgentConsoleCard } from '@/components/cohere/agent-console-card'
-import { HeroPhotoCard } from '@/components/cohere/hero-photo-card'
+import { HeroMedia } from '@/components/cohere/hero-media'
 
 export function HeroSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pt-20 pb-16">
-      <p className="type-mono-label text-body-muted">Design System · Demo</p>
-      <h1 className="type-hero mt-6 text-ink">克制的企业级 AI 视觉语言</h1>
-      <p className="type-body-large mt-6 max-w-[24em] text-body-muted">
-        编辑化白底、深色产品带、圆角媒体卡与近等宽标题。现在组件集覆盖从营销首页到研究列表与企业表单的主要场景。
-      </p>
-      <div className="mt-8 flex flex-wrap items-center gap-4">
-        <Button variant="primary" size="lg">
-          申请演示
-        </Button>
-        <Button render={<a href="#components" />} variant="secondary" size="text">
-          探索组件
-        </Button>
+    <section className="hero-section">
+      <div className="mx-auto max-w-[var(--container-hero)] text-center">
+        <h1 className="type-hero text-ink">克制的企业级 AI 视觉语言</h1>
+        <p className="type-body-large mx-auto mt-5 max-w-[37em] text-ink">
+          以 Live Preview 为视觉基准：编辑化留白、深绿产品带、圆角媒体卡与珊瑚色分类。这里的产品与内容仅作设计示例。
+        </p>
+        <div className="mt-8">
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Button nativeButton={false} render={<a href="#tokens" />}>查看设计规范</Button>
+            <Button nativeButton={false} render={<a href="#components" />} variant="secondary">探索组件</Button>
+          </div>
+        </div>
+        <HeroMedia className="mt-18">
+          <AgentConsoleCard name="Research agent" status="Ready" integrations={['Data', 'Cloud']} prompt="比较本季度的研究数据并标记异常。" />
+        </HeroMedia>
       </div>
-
-      <HeroPhotoCard
-        src="/images/ai-workspace.png"
-        alt="研究人员在企业 AI 工作空间协作"
-        priority
-        className="mt-14"
-        overlay={
-          <AgentConsoleCard
-            name="Research agent"
-            status="运行中"
-            integrations={['数据仓库', '文档库']}
-            prompt="比较本季度的研究数据并标记异常。"
-            response="已归纳 4 个趋势，并找到 2 个需要复核的异常点。"
-          />
-        }
-      />
     </section>
   )
 }
