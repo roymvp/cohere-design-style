@@ -8,16 +8,18 @@ const SCALE = [
   { cls: 'type-body-large', name: 'Body Large', meta: 'UI · 18' },
   { cls: 'type-body', name: 'Body', meta: 'UI · 16' },
   { cls: 'type-caption', name: 'Caption', meta: 'UI · 14' },
+  { cls: 'type-button', name: 'Button', meta: 'UI · 14 / 500' },
+  { cls: 'type-micro', name: 'Micro', meta: 'UI · 12' },
 ]
 
 export function TypeSection() {
   return (
-    <section className="border-t border-hairline bg-canvas">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+    <section id="typography" className="scroll-mt-24 border-t border-hairline bg-canvas">
+      <div className="catalog-section">
         <p className="type-mono-label text-body-muted">02 — Typography</p>
         <h2 className="type-section-heading mt-3 text-ink">排版层级</h2>
         <p className="type-body-large mt-4 max-w-2xl text-pretty text-body-muted [word-break:keep-all]">
-          Display 与 UI 双字族分工：标题近等宽、字距收紧；正文精确克制。避免重字重，靠尺寸与面色做层级。
+          Display 与正文统一采用 Space Grotesk，等宽标签采用 Space Mono；中文保留 Noto Sans SC 回退。以尺寸、行距和留白建立层级。
         </p>
 
         <div className="mt-12 divide-y divide-hairline">
@@ -47,7 +49,7 @@ export function TypeSection() {
                 Mono · 14
               </span>
             </span>
-            <span className="type-mono-label text-coral">Clinical Phase II</span>
+            <span className="type-mono-label text-body-muted">Clinical Phase II</span>
           </div>
         </div>
       </div>

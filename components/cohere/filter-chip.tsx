@@ -12,11 +12,11 @@ export function FilterChip({ active = false, className, ...props }: FilterChipPr
       type="button"
       aria-pressed={active}
       className={cn(
-        'inline-flex min-h-11 items-center rounded-[var(--radius-xl)] border px-5 py-2 font-sans text-lg leading-none transition-colors outline-none',
+        'inline-flex min-h-11 items-center rounded-[var(--radius-sm)] border px-3.5 py-2 type-feature-heading transition-colors outline-none',
         'focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50',
         active
           ? 'border-coral bg-coral text-ink'
-          : 'border-coral-soft bg-pale-green text-coral hover:border-coral hover:bg-coral hover:text-ink',
+          : 'border-coral-soft bg-[var(--chip-surface)] text-[var(--coral-ink)] hover:border-coral hover:bg-coral hover:text-primary',
         className,
       )}
       {...props}

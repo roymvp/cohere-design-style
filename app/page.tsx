@@ -4,6 +4,7 @@ import { TokensSection } from '@/components/showcase/tokens-section'
 import { TypeSection } from '@/components/showcase/type-section'
 import { ComponentsSection } from '@/components/showcase/components-section'
 import { FooterSection } from '@/components/showcase/footer-section'
+import { RulesSection } from '@/components/showcase/rules-section'
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
         <TokensSection />
         <TypeSection />
         <ComponentsSection />
+        <RulesSection />
       </main>
       <FooterSection />
     </div>

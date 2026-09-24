@@ -20,7 +20,7 @@ export function ProductCard({
   actionLabel = '查看规格',
 }: ProductCardProps) {
   return (
-    <Card tone="stone" className="gap-6">
+    <Card tone="stone" className="min-h-65 gap-6 rounded-[var(--radius-sm)] p-8">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
@@ -35,7 +35,7 @@ export function ProductCard({
         ))}
       </ul>
       <div className="mt-auto">
-        <Button render={<a href={href} />} variant="outline" size="pill">
+        <Button nativeButton={false} render={<a href={href} />} variant="outline" size="pill">
           {actionLabel}
         </Button>
       </div>

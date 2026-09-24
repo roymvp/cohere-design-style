@@ -31,7 +31,7 @@ export function CapabilityCard({
       <div className="flex flex-col gap-3">
         <h3 className="type-feature-heading text-ink">{title}</h3>
         <p className="type-body text-body-muted">{description}</p>
-        <Button render={<a href={href} />} variant="link" size="text" className="self-start">
+        <Button nativeButton={false} render={<a href={href} />} variant="link" size="text" className="self-start">
           {linkLabel}
         </Button>
       </div>

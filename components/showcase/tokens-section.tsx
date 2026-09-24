@@ -2,10 +2,8 @@ const BRAND_SWATCHES = [
   { name: 'primary', hex: '#17171c', note: '主 CTA / 深 UI 卡', dark: true },
   { name: 'cohere-black', hex: '#000000', note: '公告条 / 最高对比', dark: true },
   { name: 'ink', hex: '#212121', note: '正文文字', dark: true },
-  { name: 'deep-green', hex: '#062c22', note: '产品带（North）', dark: true },
-  { name: 'forest-green', hex: '#152717', note: '企业/安全带', dark: true },
-  { name: 'sage-green', hex: '#355146', note: 'CTA / empowerment 带', dark: true },
-  { name: 'dark-navy', hex: '#061324', note: '企业安全 bento 带', dark: true },
+  { name: 'deep-green', hex: '#003c33', note: '深绿产品带', dark: true },
+  { name: 'dark-navy', hex: '#071829', note: '深蓝表面', dark: true },
   { name: 'action-blue', hex: '#1863dc', note: '编辑面链接', dark: true },
   { name: 'coral', hex: '#ff7759', note: '分类 chip 强调', dark: false },
   { name: 'coral-soft', hex: '#ffad9b', note: 'chip 描边', dark: false },
@@ -13,11 +11,18 @@ const BRAND_SWATCHES = [
 
 const SURFACE_SWATCHES = [
   { name: 'canvas', hex: '#ffffff', note: '主背景', dark: false },
-  { name: 'soft-stone', hex: '#f0eee9', note: '暖石卡面', dark: false },
-  { name: 'pale-green', hex: '#f1fdea', note: '薄荷绿区块带', dark: false },
+  { name: 'soft-stone', hex: '#eeece7', note: '暖石卡面', dark: false },
+  { name: 'pale-green', hex: '#edfce9', note: '薄荷绿区块带', dark: false },
   { name: 'pale-blue', hex: '#f1f5ff', note: '博客 CTA 底', dark: false },
   { name: 'card-border', hex: '#f2f2f2', note: '最浅描线', dark: false },
-  { name: 'hairline', hex: '#d9d9dd', note: '列表分隔线', dark: false },
+  { name: 'hairline', hex: '#d9d9dd', note: '分隔线', dark: false },
+  { name: 'border-light', hex: '#e5e7eb', note: '浅描边', dark: false },
+  { name: 'slate', hex: '#75758a', note: '研究规则线', dark: true },
+  { name: 'muted-gray', hex: '#93939f', note: '低强调装饰', dark: false },
+  { name: 'body-muted', hex: '#616161', note: '辅助文字', dark: true },
+  { name: 'focus-blue', hex: '#4c6ee6', note: '操作聚焦', dark: true },
+  { name: 'form-focus', hex: '#9b60aa', note: '表单聚焦（非错误）', dark: true },
+  { name: 'destructive', hex: '#b30000', note: '校验错误', dark: true },
 ]
 
 const RADII = [
@@ -69,14 +74,14 @@ function Swatch({
 
 export function TokensSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
+    <section id="tokens" className="catalog-section scroll-mt-24">
       <p className="type-mono-label text-body-muted">01 — Foundations</p>
       <h2 className="type-section-heading mt-3 text-ink">设计 tokens</h2>
       <p className="type-body-large mt-4 max-w-2xl text-body-muted">
-        颜色、圆角与间距全部落实为 CSS 变量与 Tailwind token，源自规范原始数值。
+        颜色、圆角与间距以 Live Preview 实际渲染为准。forest / sage 仅保留为旧版兼容扩展，不属于此标准色板。
       </p>
 
-      <div className="mt-12 space-y-12">
+      <div className="mt-12"><div className="flex flex-col gap-12">
         <div>
           <h3 className="type-mono-label text-body-muted">品牌与强调色</h3>
           <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -114,7 +119,7 @@ export function TokensSection() {
 
           <div>
             <h3 className="type-mono-label text-body-muted">间距刻度（8px 基）</h3>
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 grid gap-2">
               {SPACING.map((s) => (
                 <div key={s.name} className="flex items-center gap-4">
                   <span className="w-16 type-caption text-ink">{s.name}</span>
@@ -125,7 +130,7 @@ export function TokensSection() {
             </div>
           </div>
         </div>
-      </div>
+      </div></div>
     </section>
   )
 }
